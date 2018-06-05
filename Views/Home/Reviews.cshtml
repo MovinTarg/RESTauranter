@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Reviews Dashboard";
+}
+<h1>Reviews</h1>
+<div class="review_board">
+    @model List<Review>
+    @{
+        if(Model.Count > 0)
+        {
+            foreach (var review in Model)
+            {
+                <h4>Review for: @review.RestaurantName @review.Rating Stars</h4>
+                <h4>Reviewer: @review.ReviewerName, @review.Visited</h4>
+                <p>@review.Comment</p>
+                <div class="line"></div>
+            }   
+        }
+        else
+        {
+            <h4>Write a review!</h4>
+        }
+    }
+</div>
